@@ -12,12 +12,12 @@ import it.prova.gestionebigliettiweb.model.Biglietto;
 public class UtilityBigliettoForm {
 
 	public static Biglietto createBigliettoFromParams(String provenienzaInputParam, String destinazioneInputParam,
-			String dataInputStringParam, String prezzoStringParam) {
+			String dataInputStringParam, String prezzoInputStringParam) {
 
 		Biglietto result = new Biglietto(provenienzaInputParam, destinazioneInputParam);
 
-		if (NumberUtils.isCreatable(prezzoStringParam)) {
-			result.setPrezzo(Integer.parseInt(prezzoStringParam));
+		if (NumberUtils.isCreatable(prezzoInputStringParam)) {
+			result.setPrezzo(Integer.parseInt(prezzoInputStringParam));
 		}
 		result.setData(parseDateFromString(dataInputStringParam));
 

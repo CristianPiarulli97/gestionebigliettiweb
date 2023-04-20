@@ -32,42 +32,36 @@
 		
 		
 		
-	 	<form method="post" action="ExecuteSearchArticoloServlet" class="row g-3" novalidate="novalidate">	
+	 	<form method="post" action="ExecuteSearchBigliettoServlet" class="row g-3" novalidate="novalidate">
 							
-								
 							
 								<div class="col-md-6">
-									<label for="codice" class="form-label">Provenienza <span class="text-danger"></span></label>
-									<input type="text" name="codice" id="codice" class="form-control" placeholder="Inserire il codice"  
-										value=""  required>
+									<label for="provenienza" class="form-label">Provenienza <span class="text-danger">*</span></label>
+									<input type="text" name="provenienza" id="provenienza" class="form-control" placeholder="Inserire la provenienza">
 								</div>
-								<br>
 								
 								<div class="col-md-6">
-									<label for="descrizione" class="form-label">Destinazione <span class="text-danger"></span></label>
-									<input type="text" name="descrizione" id="descrizione" class="form-control" placeholder="Inserire la descrizione"  
-										value=""  required>
+									<label for="destinazione" class="form-label">Destinazione <span class="text-danger">*</span></label>
+									<input type="text" name="destinazione" id="destinazione" class="form-control" placeholder="Inserire la destinazione">
 								</div>
-							 	<br>
+							
 								<div class="col-md-6">
-									<label for="prezzo" class="form-label">Prezzo <span class="text-danger"></span></label>
-									<input type="number" class="form-control" name="prezzo" id="prezzo" placeholder="Inserire prezzo" 
-									value="" required>
+									<label for="prezzo" class="form-label">Prezzo <span class="text-danger">*</span></label>
+									<input type="number" class="form-control" name="prezzo" id="prezzo" placeholder="Inserire prezzo">
 								</div>
-								<br>
 								
 								<div class="col-md-3">
-									<label for="data" class="form-label">Data<span class="text-danger"></span></label>
-									<input class="form-control"  name="data" id="data" type="date" placeholder="dd/MM/yy" title="formato : gg/mm/aaaa" 
-										value=""  required/>
+									<label for="data" class="form-label">Data<span class="text-danger">*</span></label>
+									<input class="form-control"  name="data" id="data" type="date" placeholder="dd/MM/yy" title="formato : gg/mm/aaaa"/>
 								</div>
 								
-								<br> <br>
+								
 							<div class="col-12">
-							
-								<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Cerca</button>
-								</div>
-							</form>
+								
+								<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Conferma</button>
+							</div>
+		
+						</form>
 								    			
 					<!-- end card-body -->			   
 				    </div>

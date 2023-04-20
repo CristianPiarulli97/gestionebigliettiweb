@@ -145,40 +145,20 @@ public class BigliettoServiceImpl implements BigliettoService {
 
 	@Override
 	public List<Biglietto> findByExample(Biglietto input) throws Exception {
-
 		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
-		
-		Map<String, Object> paramaterMap = new HashMap<String, Object>();
-		List<String> whereClauses = new ArrayList<String>();
+		try {
 
-		StringBuilder queryBuilder = new StringBuilder("select a from Articolo a where a.id = a.id ");
+			// injection
+			bigliettoDao.setEntityManager(entityManager);
 
-		if (StringUtils.isNotEmpty(input.getProvenzienza())) {
-			whereClauses.add(" b.provenienza  like :provenienza ");
-			paramaterMap.put("provenienza", "%" + input.getProvenzienza() + "%");
-		}
-		if (StringUtils.isNotEmpty(input.getDestinazione())) {
-			whereClauses.add(" b.destinazione  like :destinazione ");
-			paramaterMap.put("destinazione", "%" + input.getDestinazione() + "%");
-		}
-		if (input.getPrezzo() != null) {
-			whereClauses.add("b.data >= :data ");
-			paramaterMap.put("data", input.getData());
-		}
-		if (input.getPrezzo() != null) {
-			whereClauses.add("b.prezzo >= :prezzo ");
-			paramaterMap.put("prezzo", input.getPrezzo());
-		}
-		
-		queryBuilder.append(!whereClauses.isEmpty()?" and ":"");
-		queryBuilder.append(StringUtils.join(whereClauses, " and "));
-		TypedQuery<Biglietto> typedQuery = entityManager.createQuery(queryBuilder.toString(), Biglietto.class);
+			return bigliettoDao.findByExample(input);
 
-		for (String key : paramaterMap.keySet()) {
-			typedQuery.setParameter(key, paramaterMap.get(key));
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
 		}
-		
-		return typedQuery.getResultList();
 	}
 	
 

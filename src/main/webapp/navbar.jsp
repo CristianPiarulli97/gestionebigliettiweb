@@ -21,8 +21,8 @@
             <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
             <ul class="dropdown-menu" aria-labelledby="dropdown07">
               <li><a class="dropdown-item" href="ListArticoliServlet">Lista Biglietti</a></li>
-              <li><a class="dropdown-item" href="PrepareInsertArticoloServlet">Inserisci Nuovo</a></li>
-              <li><a class="dropdown-item" href="PrepareSearchBigliettoServlet">Something else here </a></li>
+              <li><a class="dropdown-item" href="PrepareInsertBigliettoServlet">Inserisci Nuovo</a></li>
+              <li><a class="dropdown-item" href="PrepareSearchBigliettoServlet">Cerca</a></li>
             </ul>
           </li>
         </ul>

@@ -48,7 +48,6 @@ public class ExecuteDeleteBigliettoServlet extends HttpServlet {
 				request.getRequestDispatcher("/biglietto/results.jsp").forward(request, response);
 
 
-
 				}
 
 }
