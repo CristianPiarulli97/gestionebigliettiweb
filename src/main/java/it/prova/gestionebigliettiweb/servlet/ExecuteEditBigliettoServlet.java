@@ -80,6 +80,4 @@ public class ExecuteEditBigliettoServlet extends HttpServlet {
 		request.getRequestDispatcher("/biglietto/results.jsp").forward(request, response);
 
 	}
-	
-
 }

@@ -20,9 +20,9 @@ public class PrepareEditBigliettoServlet extends HttpServlet {
        
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String parametroIdBigliettoToEdit = request.getParameter("idBigliettoToEdit");
+		String parametroIdBigliettoToEdit = request.getParameter("idBiglietto");
 		if (!NumberUtils.isCreatable(parametroIdBigliettoToEdit)) {
-			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
+			request.setAttribute("errorMessage", "Attenzione si è verificato un erroreee.");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 			return;
 		}
@@ -35,6 +35,7 @@ public class PrepareEditBigliettoServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
+		
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 			return;
 		}
