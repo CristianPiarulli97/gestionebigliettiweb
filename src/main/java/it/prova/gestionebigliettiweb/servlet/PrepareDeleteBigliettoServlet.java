@@ -47,8 +47,9 @@ public class PrepareDeleteBigliettoServlet extends HttpServlet {
 
 
 				//------------------FORWARD
-				request.getRequestDispatcher("/biglietto/delete.jsp").forward(request, response);
+				request.getRequestDispatcher("/biglietto/provadelete.jsp").forward(request, response);
 				}
 	
+
 
 }

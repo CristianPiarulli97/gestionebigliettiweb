@@ -1,6 +1,7 @@
 <!doctype html>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="it.prova.gestionebigliettiweb.model.Biglietto"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html lang="it" class="h-100" >
 	 <head>
 	 

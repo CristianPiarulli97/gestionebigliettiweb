@@ -39,7 +39,7 @@ public class PrepareEditBigliettoServlet extends HttpServlet {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 			return;
 		}
-		request.getRequestDispatcher("/biglietto/update.jsp").forward(request, response);
+		request.getRequestDispatcher("/biglietto/provaupdate.jsp").forward(request, response);
 	}
 
 

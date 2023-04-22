@@ -27,7 +27,7 @@ public class ExecuteSearchBigliettoServlet extends HttpServlet {
 		String prezzoInputParam = request.getParameter("prezzo");
 		String dataInputParam = request.getParameter("data");
 		Biglietto bigliettoInstance = UtilityBigliettoForm.createBigliettoFromParams(provenienzaInputParam,
-				destinazioneInputParam, dataInputParam, prezzoInputParam);
+				destinazioneInputParam, prezzoInputParam, dataInputParam);
 
 		try {
 			request.setAttribute("listaBigliettiAttribute",

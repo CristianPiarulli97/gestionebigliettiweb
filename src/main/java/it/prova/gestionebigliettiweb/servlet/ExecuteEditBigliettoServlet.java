@@ -62,10 +62,10 @@ public class ExecuteEditBigliettoServlet extends HttpServlet {
 		if (!UtilityBigliettoForm.validateBigliettoBean(bigliettoInstance)) {
 			request.setAttribute("bigliettoDaInviareAPaginaEdit", bigliettoInstance);
 			request.setAttribute("errorMessage", "Attenzione, sono presenti errori di validazione");
-			request.getRequestDispatcher("/biglietto/update.jsp").forward(request, response);
+			request.getRequestDispatcher("/biglietto/provaupdate.jsp").forward(request, response);
 			return;
 		}
-
+		
 		try {
 			MyServiceFactory.getBigliettoServiceInstance().aggiorna(bigliettoInstance);
 			request.setAttribute("listaBigliettiAttribute", MyServiceFactory.getBigliettoServiceInstance().listAll());

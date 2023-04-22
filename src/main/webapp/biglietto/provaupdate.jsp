@@ -1,16 +1,16 @@
-<!doctype html>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="it.prova.gestionebigliettiweb.model.Biglietto"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<html lang="it" class="h-100" >
-	 <head>
-	 
-	 	<!-- Common imports in pages -->
-	 	<jsp:include page="../header.jsp" />
-	   
-	   <title>Inserisci Nuovo Elemento</title>
-	 </head>
-	   <body class="d-flex flex-column h-100">
+<!DOCTYPE html>
+<html>s
+<head>
+	<meta charset="ISO-8859-1">
+	<jsp:include page="../header.jsp" />
+	<title>Update</title>
+</head>
+ <body class="d-flex flex-column h-100">
 	   
 	   		<!-- Fixed navbar -->
 	   		<jsp:include page="../navbar.jsp"></jsp:include>
@@ -35,50 +35,49 @@
 			  
 			  <div class='card'>
 				    <div class='card-header'>
-				        <h5>Inserisci nuovo biglietto</h5> 
+				        <h5>Modifica l'elemento selezionato</h5> 
 				    </div>
 				    <div class='card-body'>
 		
 							<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
 		
 		
-							<form method="post" action="ExecuteInsertBigliettoServlet" class="row g-3" novalidate="novalidate">
+							<form method="post" action="ExecuteEditBigliettoServlet" class="row g-3" novalidate="novalidate">
 							
-								<% Biglietto bigliettoInPagina = (Biglietto)request.getAttribute("insert_biglietto_attr"); %>
+								<c:set var="bigliettoInPagina" value="${requestScope.bigliettoDaInviareAPaginaEdit}" />
 							
 								<div class="col-md-6">
 									<label for="provenienza" class="form-label">Provenienza <span class="text-danger">*</span></label>
-									<input type="text" name="provenienza" id="provenienza" class="form-control" placeholder="Inserire la provenienza"  
-										value="<%=bigliettoInPagina.getProvenzienza()!=null?bigliettoInPagina.getProvenzienza():"" %>" required>
+									<input type="text" name="provenienza" id="provenienza" class="form-control"
+										value="<c:out value="${not empty bigliettoInPagina.provenzienza ? bigliettoInPagina.provenzienza : ''}" />" required>
 								</div>
-								
+							
 								<div class="col-md-6">
 									<label for="destinazione" class="form-label">Destinazione <span class="text-danger">*</span></label>
-									<input type="text" name="destinazione" id="destinazione" class="form-control" placeholder="Inserire la destinazione"  
-										value="<%=bigliettoInPagina.getDestinazione()!=null?bigliettoInPagina.getDestinazione():""%>" required>
+									<input type="text" name="destinazione" id="destinazione" class="form-control"   
+										value="<c:out value="${not empty bigliettoInPagina.destinazione ? bigliettoInPagina.destinazione : ''}" />" required>
 								</div>
 							
 								<div class="col-md-6">
 									<label for="prezzo" class="form-label">Prezzo <span class="text-danger">*</span></label>
-									<input type="text" name="prezzo" id="prezzo" class="form-control" placeholder="Inserire il prezzo" 
-									value="<%=bigliettoInPagina.getPrezzo()!=null?bigliettoInPagina.getPrezzo():"" %>" required>
+									<input type="number" class="form-control" name="prezzo" id="prezzo"  
+									value="<c:out value="${not empty bigliettoInPagina.prezzo ? bigliettoInPagina.prezzo : ''}" />" required>
 								</div>
 								
 								<div class="col-md-3">
 									<label for="data" class="form-label">Data<span class="text-danger">*</span></label>
-									<input class="form-control"  name="data" id="data" type="date" placeholder="Inserire la data" 
-										value="<%=bigliettoInPagina.getData()!=null? bigliettoInPagina.getData().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")):"" %>" required>
+									<input class="form-control"  name="data" id="data" type="date"  title="formato : gg/mm/aaaa" 
+										value="<c:out value="${not empty bigliettoInPagina.data ? bigliettoInPagina.data.format(DateTimeFormatter.ofPattern('yyyy-MM-dd')) : ''}" />" required/>
 								</div>
 								
-								
 							<div class="col-12">
-								<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Conferma</button>
+							<input type="hidden" name="idBigliettoToEdit" value="<c:out value="${bigliettoInPagina.id}" />">
+								<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Modifica</button>
 							</div>
 		
 						</form>
   
-				    
-				    
+
 					<!-- end card-body -->			   
 				    </div>
 				<!-- end card -->
